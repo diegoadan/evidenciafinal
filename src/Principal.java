@@ -166,6 +166,21 @@ public class Principal {
             }
         }
     }
+    void listarDoctores(){
+        if (doctores!=null){
+            if (doctores.size()>0) {
+                System.out.println("Listado de doctores:");
+                doctores.forEach((k, v) -> {
+                    System.out.println(
+                            String.format("Id doctor: %s, Nombre completo: %s, Especialidad: %s", v.Id, v.NombreCompleto, v.Especialidad)
+                    );
+                });
+                System.out.println(Integer.toString(doctores.size())+" Registros!");
+            }else{
+                System.out.println("No hay doctores registrados!");
+            }
+        }
+    }
 
     void registerUser(){
 
