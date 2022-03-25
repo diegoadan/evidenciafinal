@@ -167,42 +167,7 @@ public class Principal {
         }
     }
 
-    void registrarPaciente(){
-        Paciente paciente = new Paciente();
-        Scanner scanner = new Scanner(System.in);
-        paciente.Id = getUID();
-        System.out.println("Registro de paciente, por favor ingrese el");
-        System.out.println("Nombre completo:");
-        paciente.NombreCompleto = scanner.nextLine();
-        if (paciente.NombreCompleto!=null){
-            if  (paciente.NombreCompleto.length()>0){
-                pacientes.put(paciente.Id, paciente);
-                System.out.println("Registro exitoso!");
-                return;
-            }
-        }
-        System.out.println("Registro fallido, intente nuevamente!");
 
-    }
-    void registrarDoctor(){
-        Doctor doctor = new Doctor();
-        Scanner scanner = new Scanner(System.in);
-        doctor.Id = getUID();
-        System.out.println("Registro de doctor, por favor ingrese el");
-        System.out.println("Nombre completo:");
-        doctor.NombreCompleto = scanner.nextLine();
-        System.out.println("Especialidad:");
-        doctor.Especialidad = scanner.nextLine();
-        if (doctor.NombreCompleto!=null && (doctor.Especialidad!=null)){
-            if  (doctor.NombreCompleto.length()>0 && doctor.Especialidad.length()>0){
-                doctores.put(doctor.Id, doctor);
-                System.out.println("Registro exitoso!");
-                return;
-            }
-        }
-        System.out.println("Registro fallido, intente nuevamente!");
-
-    }
     void registrarCita(){
 
         if (pacientes.size()<1 || doctores.size()<1){
@@ -263,21 +228,6 @@ public class Principal {
         System.out.println("Registro fallido, intente nuevamente!");
 
     }
-    void listarDoctores(){
-        if (doctores!=null){
-            if (doctores.size()>0) {
-                System.out.println("Listado de doctores:");
-                doctores.forEach((k, v) -> {
-                    System.out.println(
-                            String.format("Id doctor: %s, Nombre completo: %s, Especialidad: %s", v.Id, v.NombreCompleto, v.Especialidad)
-                    );
-                });
-                System.out.println(Integer.toString(doctores.size())+" Registros!");
-            }else{
-                System.out.println("No hay doctores registrados!");
-            }
-        }
-    }
 
     void printMainMenu(){
         System.out.println("Menu principal del sistema de deministración de citas, seleccione:"+System.lineSeparator());
@@ -314,24 +264,7 @@ public class Principal {
             }
         });
     }
-    void registerUser(){
 
-        Usuario user = new Usuario();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Registro de nuevos usuarios Administradores");
-        System.out.println("Nuevo usuario:");
-        user.UserName = scanner.nextLine();
-        System.out.println("Password:");
-        user.Password = scanner.nextLine();
-
-        if (user.UserName.length()>0 && user.Password.length()>0){
-            usuarios.put(getUID(),user);
-            System.out.println("Registro exitoso!");
-        }else {
-            System.out.println("Registro fallido!");
-        }
-
-    }
 
 
     void saveXml(){
