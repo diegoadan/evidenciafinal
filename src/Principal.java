@@ -166,6 +166,23 @@ public class Principal {
             }
         }
     }
+    void registrarPaciente(){
+        Paciente paciente = new Paciente();
+        Scanner scanner = new Scanner(System.in);
+        paciente.Id = getUID();
+        System.out.println("Registro de paciente, por favor ingrese el");
+        System.out.println("Nombre completo:");
+        paciente.NombreCompleto = scanner.nextLine();
+        if (paciente.NombreCompleto!=null){
+            if  (paciente.NombreCompleto.length()>0){
+                pacientes.put(paciente.Id, paciente);
+                System.out.println("Registro exitoso!");
+                return;
+            }
+        }
+        System.out.println("Registro fallido, intente nuevamente!");
+
+    }
     void registrarDoctor(){
         Doctor doctor = new Doctor();
         Scanner scanner = new Scanner(System.in);
