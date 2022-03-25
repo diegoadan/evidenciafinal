@@ -166,6 +166,25 @@ public class Principal {
             }
         }
     }
+    void registrarDoctor(){
+        Doctor doctor = new Doctor();
+        Scanner scanner = new Scanner(System.in);
+        doctor.Id = getUID();
+        System.out.println("Registro de doctor, por favor ingrese el");
+        System.out.println("Nombre completo:");
+        doctor.NombreCompleto = scanner.nextLine();
+        System.out.println("Especialidad:");
+        doctor.Especialidad = scanner.nextLine();
+        if (doctor.NombreCompleto!=null && (doctor.Especialidad!=null)){
+            if  (doctor.NombreCompleto.length()>0 && doctor.Especialidad.length()>0){
+                doctores.put(doctor.Id, doctor);
+                System.out.println("Registro exitoso!");
+                return;
+            }
+        }
+        System.out.println("Registro fallido, intente nuevamente!");
+
+    }
     void listarDoctores(){
         if (doctores!=null){
             if (doctores.size()>0) {
