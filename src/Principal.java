@@ -167,7 +167,24 @@ public class Principal {
         }
     }
 
+    void registerUser(){
 
+        Usuario user = new Usuario();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Registro de nuevos usuarios Administradores");
+        System.out.println("Nuevo usuario:");
+        user.UserName = scanner.nextLine();
+        System.out.println("Password:");
+        user.Password = scanner.nextLine();
+
+        if (user.UserName.length()>0 && user.Password.length()>0){
+            usuarios.put(getUID(),user);
+            System.out.println("Registro exitoso!");
+        }else {
+            System.out.println("Registro fallido!");
+        }
+
+    }
     void registrarCita(){
 
         if (pacientes.size()<1 || doctores.size()<1){
